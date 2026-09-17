@@ -1,0 +1,13 @@
+{
+  "dataset": "/home/gato/Desktop/Research_Project/BIML_Project/BIML_v2_results_RF500/BIML_Reseach_Pipeline (2)/data/SSA_Malaria_Environmental_Incidence_2015_2020.csv",
+  "result_figures": [
+    "Figure_2_observed_vs_predicted_corrected.png",
+    "Figure_3_error_distributions_corrected.png",
+    "Figure_4_error_boxplot_corrected.png",
+    "Figure_7_country_improvement_hybrid_rf.png",
+    "Figure_7_country_improvement_hybrid_gb.png",
+    "Figure_9_vc_feature_importance.png"
+  ],
+  "note": "Malaria_Transmission_Modelling_Workflow.png is a conceptual Methods schematic, not an empirical model-output figure.",
+  "all_alignment_checks_passed": true
+}

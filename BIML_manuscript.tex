@@ -1,0 +1,1836 @@
+\documentclass[10pt,twocolumn]{article}
+
+% ============================================================
+% PAGE AND TYPOGRAPHY
+% ============================================================
+\usepackage[a4paper,margin=1.7cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+% \usepackage{cuted} % REMOVED: strip/cuted rewires the two-column output routine and can
+% produce empty-column artifacts with floats in this manuscript.
+% Do not auto-insert \FloatBarrier at every \section in two-column mode.
+\usepackage{placeins}
+
+% ============================================================
+% MATHEMATICS, TABLES AND FIGURES
+% ============================================================
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.8}
+
+% ============================================================
+% REFERENCES -- APA 7 + CLICKABLE CITATIONS AND DOI LINKS
+% ============================================================
+\usepackage[american]{babel}
+\usepackage{csquotes}
+
+\usepackage[
+    backend=biber,
+    style=apa,
+    sorting=nyt,
+    maxcitenames=2,
+    maxbibnames=20,
+    doi=true,
+    url=true,
+    isbn=false
+]{biblatex}
+\usepackage{xcolor}
+
+\addbibresource{references.bib}
+
+% ============================================================
+% HYPERLINKS
+% ============================================================
+\usepackage[
+    hidelinks,
+    bookmarks=true,
+    bookmarksnumbered=true,
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=blue,
+    urlcolor=blue
+]{hyperref}
+
+% ============================================================
+% BIBLIOGRAPHY FORMATTING
+% ============================================================
+\setlength{\bibitemsep}{0.55\baselineskip}
+\setlength{\bibhang}{0.25in}
+
+% ============================================================
+% COLUMN AND SECTION FORMATTING
+% ============================================================
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\normalfont\bfseries\large}
+  {\thesection.}
+  {0.5em}
+  {}
+
+\titleformat{\subsection}
+  {\normalfont\bfseries\normalsize}
+  {\thesubsection}
+  {0.5em}
+  {}
+
+\titleformat{\subsubsection}
+  {\normalfont\itshape\normalsize}
+  {\thesubsubsection}
+  {0.5em}
+  {}
+
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+\titlespacing*{\subsection}{0pt}{6pt}{3pt}
+\titlespacing*{\subsubsection}{0pt}{4pt}{2pt}
+
+% ============================================================
+% DOCUMENT
+% ============================================================
+
+\begin{document}
+
+% ============================================================
+% FIRST PAGE HEADER + ABSTRACT
+% ============================================================
+
+% Full-width first-page block implemented without cuted/strip
+% (must avoid literal ']' tokens inside the argument).
+\twocolumn[
+
+% ------------------------------------------------------------
+% TITLE
+% ------------------------------------------------------------
+
+\noindent
+{\fontsize{17}{20}\selectfont\bfseries
+Biologically Informed Machine Learning Framework for Malaria Incidence
+Prediction Using Vectorial-Capacity-Derived Information
+\par}
+
+\vspace{0.8em}
+
+% ------------------------------------------------------------
+% AUTHORS
+% ------------------------------------------------------------
+
+\noindent
+{\large\bfseries
+Kodjo Gato Didier EWLI$^{\hyperlink{aff:a}{\textcolor{blue}{a}},*}$,
+Mwangi Karanja$^{\hyperlink{aff:b}{\textcolor{blue}{b}}}$,
+Komi Mensah Agboka$^{\hyperlink{aff:c}{\textcolor{blue}{c}}}$,
+Antoine Barreaux$^{\hyperlink{aff:c}{\textcolor{blue}{c}}}$,
+Folorunso Sakinat Oluwabukonla$^{\hyperlink{aff:d}{\textcolor{blue}{d}}}$,
+Selina Akouwa WUIGA$^{\hyperlink{aff:e}{\textcolor{blue}{e}}}$
+\par}
+
+\vspace{0.5em}
+
+% ------------------------------------------------------------
+% AFFILIATIONS
+% ------------------------------------------------------------
+
+\noindent
+{\footnotesize
+\hypertarget{aff:a}{$^{a}$} Pan African University Institute for Basic Sciences,
+Technology and Innovation (PAUSTI), Nairobi, Kenya\\
+\hypertarget{aff:b}{$^{b}$} Jomo Kenyatta University of Agriculture and Technology
+(JKUAT), Nairobi, Kenya\\
+\hypertarget{aff:c}{$^{c}$} International Centre of Insect Physiology and Ecology
+(icipe), P.O. Box 30772-00100, Nairobi, Kenya\\
+\hypertarget{aff:d}{$^{d}$} Olabisi Onabanjo University, Ago-Iwoye, Nigeria\\
+\hypertarget{aff:e}{$^{e}$} Dibrugarh University, 786004, Assam, India\\\vspace{2pt}
+$^{*}$ Corresponding author: Kodjo Gato Didier EWLI
+\par}
+
+\vspace{0.6em}
+
+\hrule
+
+\vspace{0.7em}
+
+% ------------------------------------------------------------
+% ARTICLE INFO + ABSTRACT
+% ------------------------------------------------------------
+
+\noindent
+\begin{minipage}{0.25\textwidth}
+\vspace{0pt}
+\footnotesize
+
+\textbf{A R T I C L E \quad I N F O}
+
+\vspace{0.25em}
+\hrule
+\vspace{0.45em}
+
+\textit{Keywords:}
+
+\vspace{0.25em}
+
+Malaria incidence prediction\\\vspace{2pt}
+Biologically informed machine learning\\\vspace{2pt}
+Vectorial capacity\\\vspace{2pt}
+Random Forest\\\vspace{2pt}
+Gradient Boosting\\\vspace{2pt}
+Remote sensing\\\vspace{2pt}
+Sub-Saharan Africa
+
+\end{minipage}
+\hfill
+\begin{minipage}{0.70\textwidth}
+\vspace{0pt}
+\footnotesize
+
+\textbf{A B S T R A C T}
+
+\vspace{0.25em}
+\hrule
+\vspace{0.45em}
+
+Malaria transmission is shaped by complex interactions among
+epidemiological, environmental, and vector-related processes, yet
+machine-learning prediction models often represent these relationships
+primarily through statistical associations. This study evaluated
+whether vectorial-capacity-derived information provides incremental
+predictive value beyond historical malaria incidence and environmental
+predictors within a biologically informed machine-learning framework.
+Annual country-level data from 32 Sub-Saharan African countries were
+constructed from malaria incidence, land-surface temperature, rainfall,
+vegetation, surface-moisture, and population-density information. The
+target-complete dataset contained 159 country-year observations, of
+which 127 were eligible for the primary one-lag analysis. Vectorial
+capacity (VC) was represented through an environmental parameterization
+of the classical formulation, and VC-derived features were evaluated
+using Random Forest and Gradient Boosting regression models within a
+structured feature-ablation design. Performance was assessed using
+repeated country-grouped validation and a separate 2020 temporal
+holdout.
+
+Historical incidence remained the dominant predictive signal. Under
+country-grouped validation, several machine-learning configurations
+reduced RMSE and increased \(R^2\) relative to incidence persistence,
+although persistence retained the lowest mean MAE. In the 2020
+temporal evaluation, the one-lag history-plus-VC Random Forest model
+achieved the lowest RMSE among the evaluated configurations, with an
+MAE of 30.5827, RMSE of 50.4361, and \(R^2\) of 0.7075. Relative to
+persistence, this represented reductions of approximately 5.2\% in
+MAE and 7.6\% in RMSE. More importantly, relative to the corresponding
+history-only Random Forest model, incorporating VC-derived information
+reduced temporal RMSE by approximately 2.33 incidence points and MAE
+by 0.99 incidence points, demonstrating incremental predictive value
+beyond historical incidence alone in this configuration.
+
+The predictive contribution of VC-derived information was
+context-dependent and varied across feature representations,
+countries, and evaluation metrics. Its clearest incremental value was
+observed when combined with historical incidence in the one-lag Random
+Forest model. These findings provide a proof-of-concept that
+environmentally parameterized VC can serve as a compact, biologically
+structured representation that complements historical incidence within
+malaria prediction, while highlighting the need for further validation
+using larger, higher-resolution datasets and direct entomological
+observations.
+
+\end{minipage}
+
+\vspace{0.7em}
+
+\hrule
+
+]
+
+
+% ============================================================
+% NORMAL TWO-COLUMN BODY STARTS HERE
+% ============================================================
+
+\section{Introduction}
+
+\subsection{Background}
+
+Malaria remains a major vector-borne disease whose transmission is
+shaped by interactions among parasite biology, mosquito ecology,
+environmental conditions, human populations, and public-health
+interventions. Climatic and ecological factors such as temperature,
+rainfall, vegetation, and land-surface conditions influence mosquito
+survival and breeding, parasite development, and environmental
+suitability for transmission
+\parencite{LindsayBirley1996,MafweleLee2022,Odhiambo2020}.
+
+Temperature affects mosquito development, survival, biting behaviour,
+and parasite development within the vector
+\parencite{Villena2022,Suh2024}, while rainfall and vegetation provide
+information on breeding conditions and habitat suitability.
+Consequently, environmental variability contributes to spatial and
+temporal heterogeneity in malaria transmission
+\parencite{Ferraguti2023,Rakotoarinia2022,Dahlin2024,
+deSouzaWeaver2024}. Remote-sensing observations provide a practical
+means of characterizing these environmental conditions across large
+geographical areas and have increasingly been used in malaria-risk
+assessment and prediction \parencite{Cuellar2025}.
+
+These relationships have motivated the use of machine learning for
+malaria prediction because such models can capture nonlinear
+relationships and interactions among epidemiological and environmental
+variables \parencite{Masinde2020,Odu2021,Khan2024,
+RahmanShiddik2025}. However, predictive associations learned from
+observational data do not necessarily represent the biological
+processes underlying transmission. This limitation has encouraged
+biologically informed and knowledge-guided machine learning, in which
+domain knowledge is incorporated into feature construction or model
+development \parencite{Wang2020,Yin2019,Jhutty2022,Karpatne2024}.
+
+One biologically meaningful representation of malaria transmission
+potential is vectorial capacity (VC), which characterizes the potential
+contribution of a mosquito population to pathogen transmission through
+vector-related biological processes. Its foundations originate from
+classical malaria-transmission theory \parencite{Ross1905,Ross1911a},
+with subsequent work extending its application to environmental
+monitoring and malaria surveillance \parencite{Ceccato2012}. VC is
+therefore distinct from observed malaria incidence and can provide
+complementary biological information on transmission potential.
+
+This study investigates whether VC-derived information, constructed
+through an environmental parameterization of the classical VC
+framework, provides incremental predictive information when combined
+with historical malaria incidence and environmental predictors. The
+objective is not to propose a new VC formulation or replace observed
+incidence, but to evaluate VC as a biologically informed representation
+of transmission potential within a machine-learning framework.
+
+
+\subsection{Research Gap}
+
+Although machine learning has demonstrated potential for malaria
+prediction, the incremental value of biologically informed transmission
+information remains insufficiently evaluated when strong historical
+incidence and environmental predictors are already available
+\parencite{Odu2021,Okiring2021,MafweleLee2022,Kaur2022,Mbunge2023}.
+This distinction is important because malaria incidence exhibits
+substantial temporal persistence. Consequently, the predictive value
+of VC-derived information should be assessed beyond the information
+already contained in recent incidence and conventional environmental
+predictors.
+
+A related challenge concerns interpretation. Incorporating
+biologically related environmental information does not demonstrate
+that a machine-learning model has learned a biological mechanism, and
+feature importance should not be interpreted as evidence of causality
+\parencite{FanLiuSun2023,Qiu2022,AlMeslamani2024}. The contribution of
+VC should therefore be evaluated through controlled predictive
+comparisons rather than feature importance alone.
+
+Accordingly, the central research question is:
+
+\begin{quote}
+\textit{Does incorporating vectorial-capacity-derived information into
+a machine-learning framework provide incremental predictive value
+beyond historical malaria incidence and environmental predictors?}
+\end{quote}
+
+This question is examined using country-level observations from
+sub-Saharan Africa under both country-grouped validation and a
+temporal evaluation using 2020 as the held-out observation period.
+
+
+\subsection{Research Objective}
+
+The overall objective of this study is to evaluate whether the
+integration of vectorial-capacity-derived information with historical
+incidence and environmental predictors can improve machine-learning
+prediction of malaria incidence.
+
+The specific objectives are to:
+
+\begin{enumerate}
+    \item construct a biologically informed representation of malaria
+    transmission potential using environmental and demographic
+    information related to vectorial capacity;
+
+    \item integrate vectorial-capacity-derived features with historical
+    incidence and environmental predictors within a machine-learning
+    framework;
+
+    \item evaluate Random Forest and Gradient Boosting models under
+    country-grouped and temporal evaluation settings;
+
+    \item compare the models against an incidence-persistence baseline
+    based on the last available incidence observation;
+
+    \item quantify predictive performance using mean absolute error
+    (MAE), root mean squared error (RMSE), and coefficient of
+    determination ($R^2$); and
+
+    \item examine the predictive contribution of vectorial-capacity-derived
+    features without interpreting feature importance as evidence of
+    causality.
+\end{enumerate}
+
+
+\subsection{Main Contribution}
+
+The principal contribution of this study is empirical rather than
+theoretical. Rather than proposing a new vectorial-capacity equation
+or mechanistic malaria model, the study evaluates whether an
+environmentally parameterized VC representation provides incremental
+predictive information beyond historical incidence and conventional
+environmental predictors.
+
+The framework integrates three complementary sources of information:
+historical incidence representing temporal persistence; environmental
+and demographic predictors representing ecological and population
+conditions; and VC-derived features providing a biologically informed
+representation of transmission potential. Their contributions are
+evaluated through controlled feature-ablation experiments under
+country-grouped and temporal evaluation.
+
+The study therefore provides a direct assessment of whether biological
+structure contributes additional predictive information beyond strong
+epidemiological and environmental signals. Improvements are interpreted
+as evidence of predictive utility rather than proof of causal
+biological mechanisms.
+
+
+% ============================================================
+% SECTION 2 WILL FOLLOW
+% ============================================================
+
+% \section{Related Work}
+% This section will be added in the next step.
+% ============================================================
+% 2. RELATED WORK
+% ============================================================
+
+
+\section{Related Work}
+
+\subsection{Environmental and Climate-Based Malaria Prediction}
+
+Environmental and climatic conditions influence malaria transmission
+through their effects on the vector--parasite--host system. Temperature
+affects mosquito development, survival, and parasite development,
+whereas rainfall, vegetation, and humidity influence breeding
+conditions, habitat suitability, and vector survival
+\parencite{LindsayBirley1996,MafweleLee2022,Dahlin2024}. These
+relationships are frequently nonlinear, particularly for temperature,
+because increasing temperature does not continuously increase
+transmission suitability across all ranges
+\parencite{Villena2022,Suh2024}.
+
+Remote sensing provides a practical means of characterizing these
+environmental conditions across large geographical areas. Vegetation,
+land-surface, and related environmental observations have been
+associated with spatial variation in vector habitats and malaria risk
+\parencite{Ferraguti2023,Sheela2017,Rakotoarinia2022}. Recent studies
+have further demonstrated the value of remotely sensed environmental
+information for malaria-risk assessment and prediction
+\parencite{Cuellar2025}.
+
+Environmental effects may also precede changes in observed incidence
+because mosquito development, parasite development, and disease
+reporting operate over different time scales. Lagged environmental
+relationships have therefore been investigated in malaria modelling
+\parencite{Okiring2021}. Nevertheless, environmental predictors alone
+cannot represent the complete epidemiological process, which is also
+influenced by population characteristics, interventions, healthcare
+access, surveillance, and vector ecology.
+
+
+\subsection{Machine Learning for Malaria Incidence and Outbreak Prediction}
+
+Machine learning has increasingly been applied to malaria prediction
+because of its ability to represent nonlinear relationships and
+interactions among climatic, environmental, demographic, and
+epidemiological predictors. Studies in African settings have
+demonstrated its application to malaria-incidence prediction using
+climate and epidemiological information
+\parencite{Masinde2020,Odu2021}, while more recent work has extended
+these approaches to outbreak prediction and large-scale malaria
+analysis \parencite{Khan2024,RahmanShiddik2025}. Reviews of
+artificial-intelligence applications to vector-borne diseases also
+identify data quality, interpretability, and generalizability as
+important challenges \parencite{Kaur2022}.
+
+A particularly important consideration is temporal persistence in
+malaria incidence. Historical incidence may contain substantial
+predictive information because epidemiological, environmental, and
+health-system characteristics can persist over time. Consequently,
+claims about the contribution of additional environmental or biological
+information should be evaluated against a strong historical-incidence
+reference. The present study therefore uses an incidence-persistence
+baseline based on the \emph{last-observed incidence}.
+
+
+\subsection{Vectorial Capacity as a Biological Representation of
+Transmission Potential}
+
+Vectorial capacity provides an established epidemiological framework
+for relating mosquito characteristics and transmission processes to
+the potential for pathogen transmission. Its theoretical foundations
+originate from classical mathematical studies of malaria transmission
+\parencite{Ross1905,Ross1911a}, with subsequent work demonstrating how
+VC-related quantities can be combined with environmental information
+for malaria surveillance and transmission monitoring
+\parencite{Ceccato2012}.
+
+The biological basis of VC is supported by evidence that environmental
+conditions affect several components of mosquito-borne parasite
+transmission. Temperature influences vector survival, transmission
+suitability, and \textit{Plasmodium} development within mosquitoes
+\parencite{Villena2022,Suh2024}, while environmental and host
+conditions can further modify transmission potential
+\parencite{Dahlin2024}.
+
+In this study, VC is used as a biologically informed, environmentally
+parameterized representation of transmission potential rather than as
+a direct entomological measurement or replacement for observed
+incidence. VC-derived features are incorporated alongside historical
+incidence and environmental predictors to test whether this biological
+representation provides incremental predictive information.
+
+
+\subsection{Biologically Informed and Mechanism-Guided Machine
+Learning}
+
+Knowledge-guided and mechanistically informed machine learning seeks
+to integrate scientific knowledge with data-driven prediction
+\parencite{Wang2020,Yin2019,Karpatne2024}. In epidemiology, hybrid
+approaches have combined machine-learning flexibility with
+mechanistic or domain-specific representations
+\parencite{Jhutty2022,Han2024,Millevoi2024}. Such approaches are
+particularly relevant when observational data are limited,
+heterogeneous, or insufficient to recover the underlying transmission
+process directly.
+
+However, biological plausibility does not guarantee additional
+predictive value. A biologically meaningful feature may contribute
+little once correlated environmental variables and historical
+incidence are included. Conversely, a biologically structured
+representation may summarize transmission information not efficiently
+captured by individual environmental predictors. Recent work therefore
+emphasizes the importance of empirical validation when integrating
+mechanistic and data-driven approaches \parencite{Ye2025}.
+
+Interpretability must also be distinguished from causality. Feature
+importance describes how a predictor is used by a fitted model but does
+not establish that the predictor causes the observed outcome,
+particularly when environmental and biologically derived variables are
+correlated \parencite{FanLiuSun2023,Qiu2022,AlMeslamani2024}. This
+motivates the use of controlled feature-ablation comparisons as the
+primary assessment of VC contribution in the present study.
+
+
+\subsection{Data Quality and Epidemiological Heterogeneity}
+
+Malaria surveillance data may be affected by underreporting, delayed
+reporting, diagnostic differences, and variation in surveillance
+coverage. Research on infectious-disease modelling has demonstrated
+the potential effects of underreporting and reporting delays on
+observed disease data and predictive performance
+\parencite{Arima2024,Beesley2022}. Consequently, observed malaria
+incidence represents an epidemiological measurement that may not
+perfectly reflect underlying transmission intensity.
+
+Malaria transmission is also spatially heterogeneous because
+environmental suitability, vector populations, human characteristics,
+interventions, and healthcare conditions vary geographically
+\parencite{Odhiambo2020,Wu2023}. This heterogeneity motivates
+country-grouped evaluation and country-level examination of prediction
+errors, since improvements in aggregate performance may not occur
+uniformly across countries.
+
+
+\subsection{Research Gap and Positioning of the Present Study}
+
+Previous research establishes that environmental and remote-sensing
+variables contain information relevant to malaria transmission
+\parencite{MafweleLee2022,Okiring2021,Cuellar2025}, that machine
+learning can exploit nonlinear environmental--epidemiological
+relationships \parencite{Odu2021,Masinde2020,Khan2024}, and that
+knowledge-guided approaches can incorporate biological understanding
+into data-driven prediction \parencite{Jhutty2022,Karpatne2024,Ye2025}.
+
+What remains insufficiently established is whether a
+vectorial-capacity-derived representation provides additional
+predictive information once historical incidence and conventional
+environmental predictors are already available. The present study
+addresses this question through controlled feature-ablation experiments
+using Random Forest and Gradient Boosting models under country-grouped
+and temporal evaluation. The aim is not to establish a new VC equation
+or causal mechanism, but to determine whether biologically informed
+VC-derived information provides measurable incremental predictive
+value.
+
+
+%============================================
+%Section 3: Methods ans Materials
+%============================================
+
+\section{Materials and Methods}
+
+\subsection{Study Design and Analytical Dataset}
+
+This study evaluated whether incorporating biologically informed
+vectorial-capacity-derived information into a machine-learning
+framework improves malaria-incidence prediction beyond historical
+incidence and conventional environmental predictors. Random Forest
+(RF) and Gradient Boosting (GB) regression models were evaluated using
+historical incidence, environmental and demographic predictors, and
+VC-derived features.
+
+The dataset comprised 32 Sub-Saharan African countries with available
+observations for 2015, 2016, 2017, 2018, and 2020. Environmental data
+were processed using Google Earth Engine \parencite{Gorelick2017}.
+Landsat 8 provided land surface temperature (LST), Normalized
+Difference Vegetation Index (NDVI), and Normalized Difference Water
+Index (NDWI); rainfall was obtained from CHIRPS
+\parencite{Funk2015}; population density from WorldPop
+\parencite{Tatem2017}; and malaria incidence from the WHO Global
+Health Observatory \parencite{WHO_GHO_Malaria}. Malaria incidence,
+expressed as cases per 1,000 population at risk, was the prediction
+target.
+
+Environmental observations were initially extracted monthly and
+aggregated to annual country-level summaries representing average
+conditions and within-year variability. Because simultaneous
+processing of all countries exceeded practical computational limits,
+environmental extraction was performed in batches and subsequently
+combined into a single analytical dataset.
+
+The initial dataset contained 160 country-year observations. The year
+2019 was absent, and malaria incidence was missing for Mali in 2020,
+leaving 159 observations with complete target information. Historical
+incidence was constructed chronologically within each country. The
+first lag represented the \emph{last-observed incidence}, rather than
+necessarily the previous calendar year; consequently, the historical
+incidence associated with a 2020 target was the available 2018
+observation.
+
+Two analytical designs were evaluated. The one-lag design required
+only the last-observed incidence and contained 127 eligible target
+observations: 32 each from 2016, 2017, and 2018, and 31 from 2020.
+The two-lag design additionally required the second most recent
+incidence observation and contained 95 targets: 32 each from 2017 and
+2018 and 31 from 2020. Comparing these designs allowed the predictive
+value of additional historical information to be assessed against the
+loss of 32 eligible observations.
+
+Models were evaluated under two complementary settings.
+Country-grouped validation assessed generalization to held-out
+countries while allowing their previously observed incidence to remain
+available as historical information. A separate temporal evaluation
+used 2020 as the held-out period, with models developed from eligible
+pre-2020 observations and evaluated on the 31 countries with observed
+2020 incidence. Because contemporaneous 2020 environmental predictors
+were included, this experiment is interpreted as a temporal holdout
+rather than a strictly prospective forecast.
+
+Figure~\ref{fig:biml_framework} summarizes the complete analytical
+framework, from environmental and epidemiological information through
+VC construction, feature ablation, machine-learning modelling, and
+grouped and temporal evaluation.
+
+\begin{figure*}[!t]
+    \centering
+    \includegraphics[width=\textwidth]{Malaria_Transmission_Modelling_Workflow.png}
+    \caption{Biologically informed machine-learning framework for
+    malaria-incidence prediction. Environmental, biological, demographic,
+    and epidemiological information is integrated through an
+    environmentally parameterized vectorial-capacity representation.
+    VC-derived features are combined with historical incidence and
+    environmental predictors through the M1--M6 ablation design and
+    evaluated using Random Forest and Gradient Boosting under
+    country-grouped and 2020 temporal evaluation.}
+    \label{fig:biml_framework}
+\end{figure*}
+
+
+\subsection{Environmental and Demographic Predictors}
+
+Environmental and demographic predictors represented the principal
+ecological conditions associated with malaria transmission, including
+temperature, vegetation, surface moisture, rainfall, wet conditions,
+and population density. Temperature was characterized using annual
+summaries of monthly LST, while NDVI and NDWI represented vegetation
+and surface-moisture conditions, respectively. Rainfall variables
+characterized hydrological conditions relevant to mosquito breeding,
+and population density represented the human population context
+\parencite{MafweleLee2022,Okiring2021,Cuellar2025}.
+
+Two environmental representations were evaluated. The \emph{full
+environmental representation} retained the annual environmental and
+demographic summaries together with the nonlinear features described
+below. The \emph{compact environmental representation} was designed to
+retain the principal environmental domains while reducing redundancy
+and initially included \texttt{Temp\_mean}, \texttt{Temp\_std},
+\texttt{NDVI\_mean}, \texttt{NDVI\_std}, \texttt{NDWI\_mean},
+\texttt{Rainfall\_total}, \texttt{Rainfall\_std},
+\texttt{Wet\_months}, and \texttt{Population\_log}.
+
+Redundancy within the compact representation was assessed using
+pairwise Pearson correlations estimated from the training data. For
+predictor pairs with \(\lvert r\rvert \geq 0.90\), one variable was
+removed according to a predefined feature-priority order. Feature
+selection was repeated within each training partition and the retained
+set was subsequently applied to the corresponding evaluation data,
+preventing held-out observations from influencing predictor selection.
+
+
+\subsection{Nonlinear Environmental Features}
+
+To represent potential nonlinearities and interactions in
+environmental relationships with malaria transmission, six engineered
+features were included in the full environmental representation:
+\texttt{Rainfall\_log}, \texttt{Population\_log},
+\texttt{Temp\_sq}, \texttt{Rainfall\_sq},
+\texttt{Temp\_Rain}, and \texttt{NDVI\_NDWI}. They were defined as
+
+\begin{align}
+\text{Rainfall}_{\log}
+&= \log(1+\text{Rainfall}_{total}), \\
+\text{Population}_{\log}
+&= \log(1+\text{Population density}), \\
+\text{Temp}_{sq}
+&= (\text{Temp}_{mean})^2, \\
+\text{Rainfall}_{sq}
+&= (\text{Rainfall}_{total})^2, \\
+\text{Temp\_Rain}
+&= \text{Temp}_{mean}\times\text{Rainfall}_{total}, \\
+\text{NDVI\_NDWI}
+&= \text{NDVI}_{mean}\times\text{NDWI}_{mean}.
+\end{align}
+
+The logarithmic transformations reduced differences in the numerical
+scale of rainfall and population density, while the squared and
+interaction terms represented nonlinear and joint environmental
+conditions. Their inclusion was motivated by evidence that malaria
+transmission processes, particularly temperature-dependent mosquito
+and parasite processes, can respond nonlinearly to environmental
+conditions \parencite{Villena2022,Suh2024,Dahlin2024}. These engineered
+features were restricted to the full representation; the compact
+representation was retained as a smaller, less redundant alternative.
+
+
+
+\subsection{Vectorial Capacity Formulation}
+
+Vectorial capacity (VC) was incorporated as a biologically informed
+representation of malaria transmission potential. The formulation
+follows the classical VC framework, in which transmission potential
+depends on mosquito density relative to humans, biting frequency,
+mosquito survival, and parasite development within the vector
+\parencite{Ross1905,Ross1907,LindsayBirley1996}:
+
+\begin{equation}
+C =
+\frac{m a^2 p^n}{-\ln(p)},
+\label{eq:vc}
+\end{equation}
+
+where \(C\) denotes vectorial capacity, \(m\) mosquito density relative
+to the human population, \(a\) mosquito biting rate, \(p\) daily
+mosquito survival probability, and \(n\) the extrinsic incubation
+period of the malaria parasite.
+
+Because direct country-year entomological measurements of these
+components were unavailable, \(m\), \(a\), \(p\), and \(n\) were
+environmentally parameterized using temperature, rainfall, vegetation,
+and population information. The resulting VC representation was
+evaluated as biologically structured information within the
+machine-learning feature space.
+
+
+\subsubsection{Environmental Scaling for VC Construction}
+
+Four intermediate quantities represented thermal, rainfall, vegetation,
+and population conditions. Thermal suitability was defined as
+
+\begin{equation}
+s_T =
+\exp\left[
+-\frac{(T-25)^2}{2(5)^2}
+\right],
+\label{eq:thermal_suitability}
+\end{equation}
+
+where \(T\) is annual mean land surface temperature. Rainfall
+suitability was defined as
+
+\begin{equation}
+s_R =
+1-\exp\left(
+-\frac{R}{R_{\mathrm{med}}^{\mathrm{train}}}
+\right),
+\label{eq:rain_suitability}
+\end{equation}
+
+where \(R\) is annual total rainfall and
+\(R_{\mathrm{med}}^{\mathrm{train}}\) is the training-partition median.
+
+Vegetation suitability was obtained by min--max scaling annual mean
+NDVI:
+
+\begin{equation}
+s_V =
+\frac{
+V-V_{\min}^{\mathrm{train}}
+}{
+V_{\max}^{\mathrm{train}}-V_{\min}^{\mathrm{train}}
+},
+\label{eq:vegetation_suitability}
+\end{equation}
+
+where \(V\) denotes annual mean NDVI. Population density was
+log-transformed and similarly scaled:
+
+\begin{equation}
+P_{\log}=\log(1+P),
+\end{equation}
+
+\begin{equation}
+s_P =
+\frac{
+P_{\log}-P_{\log,\min}^{\mathrm{train}}
+}{
+P_{\log,\max}^{\mathrm{train}}
+-
+P_{\log,\min}^{\mathrm{train}}
+}.
+\label{eq:population_suitability}
+\end{equation}
+
+All empirical scaling quantities were estimated from the corresponding
+training partition. Values outside the training range were bounded to
+\([0,1]\).
+
+
+\subsubsection{Environmental Parameterization of VC Components}
+
+Thermal suitability was used to parameterize biting rate, mosquito
+survival, and extrinsic incubation period as
+
+\begin{equation}
+a = 0.05 + 0.03s_T,
+\label{eq:biting_rate}
+\end{equation}
+
+\begin{equation}
+p = 0.70 + 0.25s_T,
+\label{eq:survival}
+\end{equation}
+
+and
+
+\begin{equation}
+n = 20 - 8s_T.
+\label{eq:eip}
+\end{equation}
+
+The mosquito-density component incorporated rainfall, vegetation, and
+population conditions:
+
+\begin{equation}
+m =
+0.25 +
+0.75s_Rs_V
+\left(
+0.5+0.5s_P
+\right).
+\label{eq:mosquito_density}
+\end{equation}
+
+The resulting \(m\), \(a\), \(p\), and \(n\) values were substituted
+into Equation~\ref{eq:vc} to calculate \(C\) for each country-year
+observation.
+
+These numerical mappings constitute an \emph{operational environmental
+parameterization} of the classical VC components for the predictive
+experiment. They should not be interpreted as direct country-specific
+entomological measurements of mosquito density, biting rate, survival,
+or parasite incubation period.
+
+
+\subsubsection{Normalization and Temporal VC Features}
+
+Calculated VC values were normalized within each training partition as
+
+\begin{equation}
+VC_{\mathrm{norm}}
+=
+\frac{
+C-C_{\min}^{\mathrm{train}}
+}{
+C_{\max}^{\mathrm{train}}
+-
+C_{\min}^{\mathrm{train}}
+},
+\label{eq:vc_normalization}
+\end{equation}
+
+with the fitted transformation subsequently applied to the
+corresponding evaluation observations.
+
+Two temporal VC-derived features were additionally constructed:
+last-observed VC and change from the last available VC observation,
+
+\begin{equation}
+VC^{\mathrm{lag}}_{i,t}
+=
+VC_{i,t-1},
+\label{eq:vc_lag}
+\end{equation}
+
+\begin{equation}
+VC^{\mathrm{change}}_{i,t}
+=
+VC_{i,t}
+-
+VC^{\mathrm{lag}}_{i,t}.
+\label{eq:vc_change}
+\end{equation}
+
+The lag refers to the preceding \emph{available} chronological
+observation rather than necessarily the preceding calendar year.
+Consequently, for 2020 observations, \(VC^{\mathrm{lag}}\) corresponds
+to 2018 because 2019 is absent from the dataset.
+
+
+\subsubsection{Leakage Control During VC Construction}
+
+All data-dependent quantities used in VC construction, including
+rainfall medians, environmental scaling limits, and VC normalization
+parameters, were estimated exclusively from the relevant training
+partition. The same procedure was repeated within inner training
+partitions during model selection. Thus, held-out countries and 2020
+evaluation observations did not contribute distributional information
+to the construction of their VC-derived features.
+
+
+\subsection{Chronological Construction of Lagged Features}
+
+Historical malaria-incidence lags were constructed separately within
+each country after chronological ordering of the available
+observations. Let \(Y_{i,t}\) denote malaria incidence for country
+\(i\) at observation \(t\). The most recent and second most recent
+available incidence values were defined as
+
+\begin{equation}
+L^{(1)}_{i,t}=Y_{i,t-1},
+\label{eq:incidence_lag1}
+\end{equation}
+
+and
+
+\begin{equation}
+L^{(2)}_{i,t}=Y_{i,t-2},
+\label{eq:incidence_lag2}
+\end{equation}
+
+respectively. These indices refer to the ordering of \emph{available}
+observations rather than fixed calendar-year intervals. Thus, because
+2019 is absent, \(L^{(1)}_{i,2020}\) corresponds to the observed 2018
+incidence.
+
+The one-lag design used \(L^{(1)}\) and retained 127 eligible target
+observations, whereas the two-lag design additionally included
+\(L^{(2)}\) and retained 95 observations. This comparison allowed the
+predictive value of an additional historical observation to be
+evaluated against the associated reduction in sample size.
+
+Lag construction used only observations preceding the corresponding
+target within each country; the current target incidence was never
+used to construct its own historical predictors. For country-grouped
+evaluation, a held-out country's previously observed incidence
+remained available as a predictor even though its target observations
+were excluded from model fitting. The grouped experiment therefore
+assesses generalization to held-out countries with historical
+epidemiological information available, rather than to countries with
+no prior incidence observations.
+
+The same chronological principle was applied to the temporal
+VC-derived features defined in
+Equations~\ref{eq:vc_lag}--\ref{eq:vc_change}. Accordingly,
+\texttt{VC\_lag} represents the last available VC observation and
+\texttt{VC\_change} the change from that observation, rather than
+necessarily an annual change.
+
+
+
+\subsection{Hybrid Feature Representation and Ablation Design}
+
+A structured feature-ablation design was used to quantify the
+incremental predictive contribution of different information sources.
+Three predictor blocks were distinguished: historical malaria
+incidence (\(H\)), environmental and demographic information (\(E\)),
+and VC-derived information (\(V\)). Environmental predictors were
+represented using either the compact set (\(E_C\)) or the full set
+(\(E_F\)), while the VC block comprised
+
+\begin{equation}
+V_{i,t}
+=
+\left[
+VC_{\mathrm{norm},i,t},
+VC^{\mathrm{lag}}_{i,t},
+VC^{\mathrm{change}}_{i,t}
+\right].
+\label{eq:vc_block}
+\end{equation}
+
+Seven configurations were evaluated for each lag design:
+
+\begin{table}[!t]
+\centering
+\caption{Feature-ablation configurations used in the predictive
+experiment.}
+\label{tab:ablation_design}
+\begin{tabular}{p{0.13\columnwidth}p{0.30\columnwidth}
+                p{0.45\columnwidth}}
+\toprule
+Model & Representation & Information included \\
+\midrule
+M0 & Persistence & Last-observed incidence prediction \\
+M1 & History & Historical incidence only \\
+M2 & History + compact environment &
+Historical incidence and compact environmental predictors \\
+M3 & History + VC &
+Historical incidence and VC-derived features \\
+M4 & History + compact environment + VC &
+Historical incidence, compact environmental predictors, and
+VC-derived features \\
+M5 & History + full environment &
+Historical incidence and full environmental predictors \\
+M6 & History + full environment + VC &
+Historical incidence, full environmental predictors, and
+VC-derived features \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The incremental contribution of VC was assessed through three direct
+ablation contrasts: M3 versus M1 for VC beyond historical incidence,
+M4 versus M2 for VC beyond historical incidence and compact
+environmental information, and M6 versus M5 for VC beyond historical
+incidence and the full environmental representation.
+
+For an error metric \(E\), the corresponding VC contribution was
+expressed generally as
+
+\begin{equation}
+\Delta_{\mathrm{VC}}
+=
+E(M_{\mathrm{without\ VC}})
+-
+E(M_{\mathrm{with\ VC}}),
+\label{eq:vc_increment}
+\end{equation}
+
+where positive values indicate reduced prediction error after adding
+VC-derived information, whereas negative values indicate increased
+error.
+
+All non-baseline configurations were evaluated using both Random
+Forest and Gradient Boosting, and the same ablation structure was
+applied to the one-lag and two-lag datasets. This design isolates the
+incremental predictive contribution of VC-derived information from
+changes associated with environmental representation or historical
+lag structure.
+
+\subsection{Machine-Learning Models}
+
+Two ensemble tree-based regression algorithms were evaluated: Random
+Forest (RF) and Gradient Boosting (GB). These models were selected
+because they can represent nonlinear relationships and interactions
+among historical incidence, environmental, demographic, and VC-derived
+predictors without requiring a predefined linear relationship with
+malaria incidence.
+
+RF models used 500 trees, a maximum tree depth of 5, a minimum of 3
+observations per terminal leaf, and a maximum feature proportion of
+0.8. GB models used 180 boosting stages, a learning rate of 0.03, a
+maximum tree depth of 2, a minimum of 4 observations per terminal leaf,
+and Huber loss. The same model settings were maintained across the
+corresponding feature-ablation configurations.
+
+To retain the strong temporal information contained in historical
+incidence while allowing additional predictors to contribute, each
+machine-learning prediction was blended with the incidence-persistence
+prediction:
+
+\begin{equation}
+\hat{Y}_{i,t}
+=
+(1-\alpha)\hat{Y}^{\mathrm{baseline}}_{i,t}
++
+\alpha\hat{Y}^{\mathrm{ML}}_{i,t},
+\label{eq:prediction_blending}
+\end{equation}
+
+where \(\hat{Y}^{\mathrm{baseline}}_{i,t}\) is the persistence
+prediction, \(\hat{Y}^{\mathrm{ML}}_{i,t}\) is the RF or GB prediction,
+and \(\alpha\) determines their relative contribution. The value of
+\(\alpha\) was selected within the training data using
+country-grouped inner validation to minimize out-of-sample RMSE.
+Neither held-out countries nor 2020 target incidence values were used
+in selecting the blending weight.
+
+
+\subsection{Incidence-Persistence Baseline}
+
+The principal reference model was incidence persistence, for which the
+last-observed malaria incidence was used directly as the prediction:
+
+\begin{equation}
+\hat{Y}_{i,t}^{\mathrm{baseline}}
+=
+Y_{i,t-1},
+\label{eq:persistence_baseline}
+\end{equation}
+
+where \(Y_{i,t-1}\) denotes the most recent available incidence
+observation preceding the target for country \(i\). This baseline
+provides a strong reference for determining whether environmental and
+VC-derived information contributes predictive value beyond the
+temporal persistence already present in malaria incidence.
+
+
+\subsection{Country-Grouped Validation}
+
+Generalization across countries was evaluated using repeated
+country-grouped train--test splits. Countries, rather than individual
+country-year observations, were used as grouping units so that all
+eligible observations from a given country were assigned exclusively
+to either the training or evaluation partition within each split. Ten
+repeated grouped splits were used.
+
+All data-dependent preprocessing steps, including compact-feature
+selection, VC scaling, and selection of the prediction-blending weight,
+were fitted using the corresponding training data. Model performance
+was then calculated on the held-out countries and summarized across
+the repeated splits.
+
+Because historical predictors for a held-out country were constructed
+from that country's observations preceding the target, this experiment
+evaluates generalization to countries with available historical
+incidence information rather than to countries with no epidemiological
+history.
+
+
+\subsection{Temporal Evaluation}
+
+Temporal performance was evaluated by training models on eligible
+observations from 2015--2018 and evaluating them on 2020 observations.
+The 2020 set contained 31 eligible countries because malaria incidence
+for Mali was unavailable in 2020.
+
+All preprocessing operations and model-selection procedures were
+restricted to the pre-2020 training data. For 2020 targets, the
+last-observed incidence and VC history corresponded to 2018 because
+2019 was absent from the dataset.
+
+The 2020 analysis should be interpreted as a temporal holdout rather
+than a strict prospective forecast because contemporaneous
+environmental information for the target period was included among the
+predictors.
+
+
+\subsection{Performance Metrics}
+
+Predictive performance was assessed using mean absolute error (MAE),
+root mean squared error (RMSE), and the coefficient of determination
+(\(R^2\)):
+
+\begin{align}
+\mathrm{MAE}
+&=
+\frac{1}{N}
+\sum_{j=1}^{N}
+\left|y_j-\hat{y}_j\right|,
+\\
+\mathrm{RMSE}
+&=
+\sqrt{
+\frac{1}{N}
+\sum_{j=1}^{N}
+\left(y_j-\hat{y}_j\right)^2
+},
+\\
+R^2
+&=
+1-
+\frac{
+\sum_{j=1}^{N}(y_j-\hat{y}_j)^2
+}{
+\sum_{j=1}^{N}(y_j-\bar{y})^2
+}.
+\end{align}
+
+MAE characterizes average absolute prediction error, RMSE gives greater
+weight to larger errors, and \(R^2\) measures the proportion of
+variation in incidence explained relative to prediction by the sample
+mean. Lower MAE and RMSE and higher \(R^2\) indicate better predictive
+performance.
+
+
+\subsection{Statistical Comparison and Uncertainty}
+
+Uncertainty in temporal model comparisons was assessed using paired
+country-level bootstrap resampling. Countries in the 2020 evaluation
+set were resampled with replacement, and differences in MAE and RMSE
+between paired model configurations were recalculated for each
+bootstrap sample. The 2.5th and 97.5th percentiles of the resulting
+distributions were used to obtain 95\% bootstrap confidence intervals.
+
+Particular attention was given to the VC ablation contrasts defined
+previously (M3 versus M1, M4 versus M2, and M6 versus M5), where
+available. For error metrics, positive differences indicate a
+reduction in prediction error after adding VC-derived information.
+
+Formal significance tests were not applied to the repeated
+country-grouped validation scores because observations and training
+sets overlap across repeated splits, violating the independence
+assumption underlying conventional paired tests. Grouped-validation
+results were therefore summarized descriptively across splits, while
+the paired country bootstrap was used to characterize uncertainty in
+the temporal evaluation.
+
+
+\subsection{Feature Importance}
+
+Model-based feature importance was examined as a secondary diagnostic
+to characterize the relative contribution of historical,
+environmental, and VC-derived predictors. Feature importance was
+extracted separately from the fitted Random Forest and Gradient
+Boosting models.
+
+Because tree-based importance measures can be influenced by correlated
+predictors and do not establish causal effects, they were interpreted
+only as descriptive measures of model reliance. The primary evidence
+for the predictive contribution of VC was therefore obtained from the
+controlled M1--M6 ablation comparisons rather than from feature
+importance rankings.
+
+
+\subsection{Information-Leakage Control and Reproducibility}
+
+All data-dependent transformations were estimated exclusively from the
+corresponding training partition. These included environmental
+feature selection, rainfall and population scaling used in VC
+construction, VC normalization, and selection of the prediction
+blending weight. During inner validation, these operations were
+re-estimated using only the relevant inner training data before being
+applied to validation observations.
+
+Lagged incidence and VC features were constructed chronologically
+within countries using only information available before the
+corresponding target observation. Held-out target incidence values and
+2020 target incidence values were therefore never used in feature
+construction, preprocessing, or model selection.
+
+The same preprocessing, feature-ablation definitions, model settings,
+and evaluation procedures were applied consistently to Random Forest
+and Gradient Boosting models. Random seeds were fixed for repeated
+data splitting and model fitting to support computational
+reproducibility.
+
+
+\section{Results}
+
+\subsection{Dataset Characteristics}
+
+The target-complete annual dataset contained 159 country-year
+observations from 32 Sub-Saharan African countries. The one-lag design
+retained 127 eligible observations from 2016, 2017, 2018, and 2020,
+whereas the two-lag design retained 95 observations from 2017, 2018,
+and 2020. Because 2019 was absent, lagged information for 2020
+corresponded to the most recent available observation in 2018.
+
+
+\subsection{Grouped Validation Performance}
+
+Repeated country-grouped validation showed generally lower prediction
+errors for the one-lag than the two-lag design. Table~\ref{tab:grouped_results}
+summarizes the principal one-lag Random Forest results. Persistence
+(M0) achieved the lowest mean MAE (22.2711), whereas the
+history-plus-compact-environment model (M2) achieved the lowest RMSE
+(37.3853) and highest \(R^2\) (0.8480). Thus, the relative performance
+of the models depended on the evaluation metric.
+
+\begin{table}[!t]
+\centering
+\caption{Repeated country-grouped validation performance for the
+one-lag Random Forest configurations.}
+\label{tab:grouped_results}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccc}
+\toprule
+Model & MAE & RMSE & $R^2$ \\
+\midrule
+Persistence (M0)      & \textbf{22.2711} & 39.8300 & 0.8268 \\
+History RF (M1)       & 23.5992 & 39.0749 & 0.8336 \\
+Hist.+Env. RF (M2)    & 24.1465 & \textbf{37.3853} & \textbf{0.8480} \\
+Hist.+VC RF (M3)      & 24.2671 & 38.1615 & 0.8429 \\
+Hist.+Env.+VC RF (M4) & 24.2333 & 37.4594 & 0.8477 \\
+Full Env. RF (M5)     & 24.4522 & 37.8454 & 0.8443 \\
+Full Env.+VC RF (M6)  & 24.3378 & 37.8552 & 0.8443 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Among the one-lag Random Forest configurations, M2 achieved the lowest
+grouped RMSE (37.3853) and highest \(R^2\) (0.8480), while M4 produced
+similar performance (RMSE 37.4594; \(R^2=0.8477\)). The more
+parsimonious M3 configuration achieved an RMSE of 38.1615 and
+\(R^2=0.8429\). In contrast, persistence retained the lowest MAE
+(22.2711), indicating that the machine-learning gains in RMSE were
+concentrated more strongly among larger prediction errors.
+
+The corresponding two-lag M3 Random Forest model produced a grouped
+RMSE of 42.1408, compared with 38.1615 for the one-lag model. Thus,
+the additional historical lag did not compensate for the reduction
+from 127 to 95 eligible observations.
+
+
+\subsection{Temporal Evaluation on 2020 Observations}
+
+Temporal evaluation included 31 countries with available 2020 malaria
+incidence. Table~\ref{tab:temporal_results} summarizes the principal
+one-lag Random Forest results.
+
+\begin{table}[!t]
+\centering
+\caption{2020 temporal-evaluation performance for the one-lag Random
+Forest configurations.}
+\label{tab:temporal_results}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccc}
+\toprule
+Model & MAE & RMSE & $R^2$ \\
+\midrule
+Persistence (M0)      & 32.2710 & 54.6111 & 0.6571 \\
+History RF (M1)       & 31.5723 & 52.7665 & 0.6798 \\
+Hist.+Env. RF (M2)    & 31.3547 & 52.4761 & 0.6834 \\
+Hist.+VC RF (M3)      & \textbf{30.5827} & \textbf{50.4361} & \textbf{0.7075} \\
+Hist.+Env.+VC RF (M4) & 31.5876 & 52.3498 & 0.6849 \\
+Full Env. RF (M5)     & 31.5203 & 52.7202 & 0.6804 \\
+Full Env.+VC RF (M6)  & 31.5313 & 52.5652 & 0.6823 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The one-lag history-plus-VC Random Forest model (M3) achieved the
+lowest MAE and RMSE and the highest \(R^2\) among the evaluated
+configurations, with an MAE of 30.5827, RMSE of 50.4361, and
+\(R^2\) of 0.7075. Relative to persistence (M0), M3 reduced MAE by
+approximately 5.2\% and RMSE by 7.6\%, while increasing \(R^2\) from
+0.6571 to 0.7075.
+
+For the direct VC ablation, M3 reduced RMSE by 2.3305 incidence points
+and MAE by 0.9896 relative to the corresponding history-only Random
+Forest model (M1). In paired country-level bootstrap analysis, the
+RMSE reduction had a 95\% interval of $[-0.4516,\,4.0317]$, with
+95.45\% of bootstrap resamples favoring M3 over M1; the corresponding
+MAE interval was $[-0.7553,\,2.7919]$. Although both intervals included
+zero, these results provide the clearest point-estimate evidence of
+incremental predictive information from the VC-derived representation
+beyond historical incidence alone.
+
+The incremental differences were more modest when environmental
+predictors were already included. RMSE decreased from 52.4761 in M2
+to 52.3498 in M4 and from 52.7202 in M5 to 52.5652 in M6. Thus, the
+largest point-estimate reduction in temporal RMSE associated with
+adding VC occurred in the history-only comparison (M3 versus M1).
+
+The two-lag M3 model produced an RMSE of 50.8512 and \(R^2=0.7027\),
+compared with 50.4361 and 0.7075 for the one-lag formulation.
+Together with the larger analytical sample retained by the one-lag
+design, these results supported its use as the primary analysis.
+
+\subsection{Prediction Diagnostics}
+
+Prediction diagnostics for the 2020 temporal holdout are shown in
+Figures~\ref{fig:observed_predicted}--\ref{fig:error_boxplot}.
+Figure~\ref{fig:observed_predicted} compares observed incidence with
+predictions from the persistence baseline and the one-lag
+history-plus-VC Random Forest model (M3). The M3 predictions showed
+lower overall error than persistence, although larger discrepancies
+remained for some high-incidence observations.
+
+\begin{figure}[!tbp]
+\centering
+\includegraphics[width=\columnwidth]
+{Figure_2_observed_vs_predicted_corrected.png}
+\caption{Observed versus predicted malaria incidence in the 2020
+temporal holdout for the incidence-persistence baseline and the
+one-lag history-plus-vectorial-capacity Random Forest model (M3).
+The dashed diagonal represents perfect agreement.}
+\label{fig:observed_predicted}
+\end{figure}
+
+Figure~\ref{fig:error_distribution} shows the cumulative distribution
+of absolute prediction errors. At an error threshold of 25 incidence
+points, 58.1\% of countries were within the threshold for M3,
+compared with 54.8\% for both persistence and the corresponding
+history-plus-VC Gradient Boosting model.
+
+\begin{figure}[!tbp]
+\centering
+\includegraphics[width=\columnwidth]
+{Figure_3_error_distributions_corrected.png}
+\caption{Cumulative distribution of absolute prediction errors in the
+2020 temporal holdout. Curves rising more rapidly indicate a larger
+proportion of countries with smaller absolute errors.}
+\label{fig:error_distribution}
+\end{figure}
+
+Figure~\ref{fig:error_boxplot} further illustrates the distribution
+and variability of prediction errors across models, showing that
+aggregate performance differences were not associated with uniform
+improvement across all countries.
+
+\begin{figure}[!tbp]
+\centering
+\includegraphics[width=\columnwidth]
+{Figure_4_error_boxplot_corrected.png}
+\caption{Distribution of prediction errors across the evaluated models
+in the 2020 temporal holdout.}
+\label{fig:error_boxplot}
+\end{figure}
+
+\subsection{Incremental Contribution of Vectorial Capacity}
+
+The ablation analysis showed that the predictive contribution of
+VC-derived information depended on the accompanying feature
+representation. In the 2020 one-lag Random Forest evaluation, adding
+VC-derived features directly to historical incidence (M3 versus M1)
+reduced RMSE from 52.7665 to 50.4361 and MAE from 31.5723 to 30.5827,
+corresponding to reductions of 2.3305 and 0.9896 incidence points,
+respectively.
+
+When compact environmental predictors were already included (M4
+versus M2), the RMSE reduction was 0.1262 incidence points
+(95\% bootstrap CI: $-0.3626$ to $0.3651$), with 72.35\% of bootstrap
+resamples favoring M4. The corresponding MAE reduction was $-0.2329$
+(95\% CI: $-0.6228$ to $0.1639$).
+
+Similarly, adding VC to the full environmental representation (M6
+versus M5) reduced RMSE by 0.1551 incidence points
+(95\% CI: $-0.1508$ to $0.3262$), with 87.95\% of bootstrap resamples
+favoring M6. The corresponding MAE reduction was $-0.0110$
+(95\% CI: $-0.3334$ to $0.2766$).
+
+Gradient Boosting showed similarly small incremental RMSE differences
+when VC was added to environmental representations: 0.3592
+(95\% CI: $-0.2073$ to $0.7366$) for the compact representation and
+0.1271 (95\% CI: $-0.1229$ to $0.3531$) for the full representation.
+
+Thus, the clearest point-estimate improvement from VC-derived
+information occurred when it was combined directly with historical
+incidence in the Random Forest model. When compact or full
+environmental predictors were already present, the incremental
+differences were small and the bootstrap intervals included zero.
+
+\subsection{Country-Level Heterogeneity}
+
+Country-level performance under repeated grouped evaluation was
+heterogeneous. The one-lag history-plus-VC Random Forest model reduced
+mean absolute error relative to persistence in 7 of the 29 countries
+with paired comparisons (Figure~\ref{fig:country_rf}). Thus, the
+aggregate grouped-validation performance did not correspond to uniform
+country-level improvements.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]
+{Figure_7_country_improvement_hybrid_rf.png}
+\caption{Country-level mean absolute-error improvement for the one-lag
+history-plus-vectorial-capacity Random Forest model relative to
+persistence under repeated country-grouped evaluation. Positive values
+indicate lower error for the history-plus-VC model.}
+\label{fig:country_rf}
+\end{figure}
+
+The corresponding Gradient Boosting model reduced mean absolute error
+relative to persistence in 8 of 29 countries
+(Figure~\ref{fig:country_gb}), again indicating that predictive gains
+were concentrated in a subset of countries.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]
+{Figure_7_country_improvement_hybrid_gb.png}
+\caption{Country-level mean absolute-error improvement for the one-lag
+history-plus-vectorial-capacity Gradient Boosting model relative to
+persistence under repeated country-grouped evaluation. Positive values
+indicate lower error for the history-plus-VC model.}
+\label{fig:country_gb}
+\end{figure}
+
+
+\subsection{Importance of VC-Derived Features}
+
+Feature importance provided a complementary view of how VC-derived
+information was used in the final one-lag history-plus-VC models.
+As shown in Figure~\ref{fig:vc_importance}, \texttt{VC\_norm} was the
+most important VC-derived feature in both algorithms. Its importance
+was 0.0805 in Random Forest and 0.0263 in Gradient Boosting, compared
+with 0.0431 and 0.0055 for \texttt{VC\_lag}, and 0.0266 and 0.0092
+for \texttt{VC\_change}, respectively.
+
+Historical incidence remained the dominant predictor, with
+\texttt{lag1\_incidence} importance of 0.8498 in Random Forest and
+0.9591 in Gradient Boosting. Thus, although VC-derived features
+contributed to the fitted models, their individual importance was
+substantially smaller than that of recent malaria incidence. These
+importance values are interpreted as secondary diagnostics; the
+ablation experiments provide the primary evidence for the incremental
+predictive contribution of VC.
+
+\begin{figure}[!tbp]
+\centering
+\includegraphics[width=\columnwidth]{Figure_9_vc_feature_importance.png}
+\caption{Impurity-based importance of VC-derived features in the final
+one-lag history-plus-VC Random Forest and Gradient Boosting models for
+the 2020 temporal evaluation. Values indicate predictor utilization
+within the fitted models and not causal influence.}
+\label{fig:vc_importance}
+\end{figure}
+
+
+\section{Discussion}
+
+\subsection{Principal Findings}
+
+This study evaluated whether vectorial-capacity-derived information
+provides incremental predictive value when integrated into a
+machine-learning framework for malaria-incidence prediction. The
+results indicate a context-dependent contribution that varied with
+feature representation, learning algorithm, evaluation strategy, and
+performance metric.
+
+The clearest improvement occurred in the 2020 temporal evaluation.
+The one-lag history-plus-VC Random Forest model (M3) achieved an RMSE
+of 50.4361 compared with 54.6111 for persistence, corresponding to a
+7.6\% reduction, while \(R^2\) increased from 0.6571 to 0.7075.
+More importantly, relative to the corresponding history-only Random
+Forest model (M1), inclusion of VC-derived information reduced RMSE by
+2.3305 and MAE by 0.9896 incidence points. This indicates incremental
+predictive information beyond historical incidence alone in this
+configuration.
+
+The contribution was substantially smaller when compact or full
+environmental predictors were already included, and the bootstrap
+intervals for these VC-ablation contrasts included zero. This pattern
+is consistent with partial information overlap because the VC
+representation is itself constructed from environmental and
+demographic variables.
+
+Country-grouped evaluation provided a complementary result: several
+machine-learning configurations reduced RMSE relative to persistence,
+whereas persistence retained the lowest mean MAE. The one-lag design
+also generally outperformed the two-lag design while retaining 127
+rather than 95 eligible observations. Overall, the findings support a
+conditional role for VC-derived information, with its clearest value
+in the present analysis occurring as a compact biologically informed
+representation combined with recent malaria incidence.
+
+\subsection{Biological Interpretation and Incremental Value of VC}
+
+The contribution of this study is not a new vectorial-capacity
+formulation, but the integration and evaluation of environmentally
+parameterized VC within a machine-learning framework. Classical
+vectorial capacity organizes transmission potential through
+components related to mosquito abundance, biting activity, survival,
+and parasite development
+\parencite{Ross1905,Ross1907,LindsayBirley1996}. In the present study,
+these components were represented using temperature, rainfall,
+vegetation, and population information rather than direct
+entomological measurements.
+
+This distinction is central to interpretation. The resulting
+VC-derived features should not be regarded as direct country-specific
+estimates of mosquito density, biting rate, survival probability, or
+parasite-development duration. Instead, they provide a biologically
+structured representation of environmental conditions associated with
+transmission potential. Temperature influences several mosquito and
+parasite processes, while rainfall and vegetation contribute to
+conditions relevant to vector populations
+\parencite{Villena2022,Dahlin2024}.
+
+The ablation results suggest that this biological representation can
+complement historical epidemiological information. Historical
+incidence summarizes the recent observed state of malaria transmission
+and implicitly captures multiple measured and unmeasured determinants,
+whereas VC organizes selected environmental and demographic conditions
+through an epidemiologically motivated structure. The improved
+temporal performance of M3 relative to M1 indicates that these
+information sources were not completely redundant in the evaluated
+Random Forest configuration.
+
+The smaller and uncertain improvements obtained when VC was added to
+compact or full environmental representations are also informative.
+Because VC is constructed partly from the same environmental and
+demographic predictors, broader environmental models may already
+contain much of the statistical information summarized by the VC
+representation. Its contribution may therefore lie not only in adding
+new predictive information, but also in organizing existing
+environmental information into a compact, biologically interpretable
+representation. This is consistent with the broader objective of
+knowledge-guided and mechanism-informed machine learning, in which
+domain knowledge constrains or structures data-driven prediction
+\parencite{Yin2019,Wang2020,Karpatne2024}.
+
+The observed predictive benefit should not, however, be interpreted as
+validation of the calculated VC values as direct measures of biological
+transmission intensity. Such validation would require independent
+entomological observations of vector abundance, biting behavior,
+survival, and related transmission components. The present findings
+instead demonstrate the predictive utility of an environmentally
+parameterized vectorial-capacity representation within the evaluated
+machine-learning framework.
+
+
+\subsection{Historical Incidence and the Contribution of VC-Derived Features}
+
+Historical incidence remained the dominant predictor in the final
+one-lag history-plus-VC models. The importance of
+\texttt{lag1\_incidence} was 0.8498 in Random Forest and 0.9591 in
+Gradient Boosting, substantially exceeding the importance of the
+individual VC-derived features. This dominance is consistent with the
+strong temporal persistence of malaria incidence, which can summarize
+the combined influence of previous transmission intensity,
+interventions, healthcare access, surveillance characteristics, and
+other country-specific factors not explicitly represented in the
+predictor set.
+
+Among the VC-derived features, \texttt{VC\_norm} had the highest
+importance in both algorithms. Its importance was 0.0805 in Random
+Forest and 0.0263 in Gradient Boosting, compared with 0.0431 and
+0.0055 for \texttt{VC\_lag}, and 0.0266 and 0.0092 for
+\texttt{VC\_change}, respectively. This pattern indicates that the
+models relied more strongly on the contemporaneous normalized VC
+representation than on its historical level or change from the last
+available observation.
+
+The dominance of historical incidence also explains the strength of
+the persistence baseline, particularly under country-grouped
+evaluation where it retained the lowest mean MAE. Nevertheless,
+historical dominance does not imply that VC-derived information was
+uninformative. The temporal ablation results showed that adding VC to
+historical incidence improved the one-lag Random Forest prediction,
+supporting a complementary rather than competing relationship between
+the two information sources.
+
+Feature importance should be interpreted cautiously because correlated
+predictors can redistribute importance and tree-based importance does
+not establish causal influence. Accordingly, these results are used
+only to describe predictor utilization within the fitted models; the
+controlled feature-ablation experiments remain the primary evidence
+for the incremental predictive contribution of VC-derived information.
+
+
+\subsection{Generalization and Country-Level Heterogeneity}
+
+The country-grouped and temporal evaluations examined complementary
+dimensions of predictive generalization. Country-grouped validation
+assessed performance in held-out countries with historical incidence
+information available, whereas the 2020 temporal holdout assessed
+performance during a later observation period using models developed
+from earlier data.
+
+The two evaluation settings produced different performance patterns.
+Under country-grouped validation, several machine-learning
+configurations reduced RMSE and increased \(R^2\) relative to
+persistence, with the history-plus-compact-environment Random Forest
+model (M2) achieving the lowest grouped RMSE. Persistence nevertheless
+retained the lowest mean MAE. In the temporal holdout, the
+history-plus-VC Random Forest model (M3) achieved the lowest RMSE,
+together with lower MAE and higher \(R^2\) than persistence. These
+differences demonstrate that conclusions about predictive performance
+depend on both the validation structure and the performance metric.
+
+Country-level analysis further showed that predictive gains were not
+geographically uniform. Under repeated country-grouped evaluation,
+the history-plus-VC Random Forest model reduced mean absolute error
+relative to persistence in 7 of 29 countries, while the corresponding
+Gradient Boosting model did so in 8 of 29 countries. This
+heterogeneity is consistent with variation in malaria epidemiology,
+environmental conditions, interventions, healthcare and surveillance
+systems, and historical transmission patterns across countries
+\parencite{Odhiambo2020,Wu2023}.
+
+These findings emphasize the importance of evaluating malaria
+prediction models across both geographical and temporal dimensions
+rather than relying on a single aggregate validation result. They also
+indicate that the predictive contribution of VC-derived information
+should not be assumed to generalize uniformly across epidemiological
+settings.
+
+The 2020 experiment should nevertheless be interpreted as a temporal
+holdout rather than a strictly prospective forecast because
+contemporaneous environmental predictors from 2020 were included in
+the predictor representation. Historical incidence and lagged VC
+information remained restricted to observations preceding the target
+period.
+
+
+\subsection{Relationship to Previous Work and Implications}
+
+Previous malaria-prediction studies have demonstrated the value of
+climatic, environmental, remote-sensing, and epidemiological predictors,
+including temperature, rainfall, vegetation, and historical incidence
+\parencite{MafweleLee2022,Okiring2021,Cuellar2025,Odu2021,Masinde2020,Kaur2022}.
+The present study extends this direction by incorporating
+vectorial-capacity-derived information as a biologically structured
+representation within the predictive feature space rather than simply
+adding further environmental variables.
+
+The proposed framework is therefore best characterized as biologically
+informed machine learning rather than as a new mechanistic model of
+malaria transmission. The classical VC formulation provides
+epidemiological structure, while Random Forest and Gradient Boosting
+learn predictive relationships among historical incidence,
+environmental conditions, VC-derived features, and observed malaria
+incidence. This approach is consistent with the broader principle of
+integrating domain knowledge into data-driven models without requiring
+the complete prediction process to be specified mechanistically
+\parencite{Jhutty2022,Karpatne2024}.
+
+The results also demonstrate that biological structure does not
+guarantee improved prediction in every configuration. VC-derived
+information provided its clearest contribution when combined directly
+with recent incidence, whereas its incremental benefit was smaller and
+uncertain when broader environmental representations were already
+included. This suggests that biologically informed representations may
+be particularly useful as compact complements to strong epidemiological
+predictors rather than as universally additive feature sets.
+
+For malaria surveillance and predictive decision support, this
+framework provides a proof-of-concept for combining recent
+epidemiological information with biologically structured environmental
+information. However, the observed country-level heterogeneity
+indicates that performance should be evaluated locally before
+operational application. Future work should assess the framework using
+larger and more continuous datasets, finer spatial and temporal
+resolution, independent geographical validation, and direct
+entomological measurements where available. These extensions would
+permit stronger evaluation of the relationship between environmentally
+parameterized vectorial capacity and observed malaria transmission and
+support the development of more localized prediction and early-warning
+systems.
+
+
+
+\section{Limitations and Future Research}
+
+\subsection{Data Scale, Resolution, and Generalizability}
+
+The present study was based on 159 target-complete annual
+country-level observations from 32 Sub-Saharan African countries, with
+127 observations eligible for the primary one-lag analysis and 95 for
+the two-lag analysis. This relatively small sample constrained model
+complexity, while annual country-level aggregation masked
+within-country spatial and seasonal variation in environmental
+conditions, vector ecology, interventions, and malaria transmission.
+Furthermore, because 2019 was absent, the last-observed information
+used for 2020 corresponded to 2018 rather than the immediately
+preceding calendar year.
+
+These limitations motivate evaluation using larger and more continuous
+surveillance datasets at finer spatial and temporal resolutions.
+External validation across independent countries, ecological zones,
+transmission settings, and time periods will also be important for
+determining the generalizability of the observed predictive
+relationships.
+
+The 2020 experiment should additionally be interpreted as a temporal
+holdout rather than a strictly prospective forecast because
+contemporaneous environmental predictors were included. Future
+forecasting applications should restrict predictors to information
+available before the prediction period or incorporate forecast and
+near-real-time environmental data alongside epidemiological
+surveillance.
+
+\subsection{VC Representation and Future Model Development}
+
+The vectorial-capacity representation was environmentally parameterized
+from temperature, rainfall, vegetation, and population information
+rather than from direct country-specific entomological measurements.
+Accordingly, the resulting VC-derived features represent biologically
+structured transmission-related environmental information and should
+not be interpreted as direct measurements of mosquito abundance,
+biting behavior, survival, parasite development, or vectorial capacity
+itself.
+
+Future studies should incorporate direct entomological observations,
+including vector abundance and species composition, biting rates,
+survival, and parasite-development measurements, where available.
+Combined with higher-resolution environmental and epidemiological data,
+such observations would permit more empirically grounded
+parameterization and validation of VC components and stronger
+assessment of their predictive contribution across transmission
+settings.
+
+Random Forest and Gradient Boosting were selected because they provide
+flexible nonlinear prediction while remaining suitable for the limited
+analytical sample. Larger datasets would permit evaluation of
+additional machine-learning and hybrid approaches while preserving the
+biologically informed structure of the framework. Such extensions,
+together with independent external validation, could support future
+development toward localized malaria prediction and operational
+early-warning systems.
+
+
+\section{Conclusion}
+
+This study evaluated the incremental predictive contribution of
+vectorial-capacity-derived information within a biologically informed
+machine-learning framework for malaria-incidence prediction. Across
+the evaluated configurations, the contribution of VC was
+context-dependent rather than universal. The clearest evidence was
+observed in the 2020 temporal evaluation, where the one-lag
+history-plus-VC Random Forest model achieved the lowest temporal RMSE
+(50.4361) among the evaluated configurations. Relative to the
+corresponding history-only model, incorporating VC-derived information
+reduced RMSE by 2.33 incidence points and MAE by 0.99 incidence
+points, demonstrating incremental predictive value beyond historical
+incidence alone in this setting. The broader ablation analysis showed that the magnitude of the incremental VC contribution varied across feature representations,
+while country-grouped performance also differed across metrics and
+countries. Historical incidence remained the dominant predictive
+signal, with \texttt{VC\_norm} providing the strongest contribution
+among the VC-derived features. These findings suggest that the
+principal value of VC in the present framework lies in providing a
+compact, biologically structured representation that can complement
+recent epidemiological information, particularly when extensive
+environmental predictors are not already represented in the model.
+
+The study therefore provides a proof-of-concept for integrating
+epidemiological knowledge into data-driven malaria prediction without
+treating the resulting model as a mechanistic simulation or the
+environmentally parameterized VC representation as direct
+entomological measurement. Further evaluation using larger and more
+continuous datasets, finer spatio-temporal resolution, independent
+external validation, and direct entomological observations is needed
+to establish the generalizability and potential operational value of
+this biologically informed approach.
+
+\printbibliography[title={References}]
+
+\end{document}

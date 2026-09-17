@@ -1,0 +1,15 @@
+check,actual,expected,tolerance,pass
+annual target-complete rows,159.0,159.0,0.0,True
+one-lag eligible rows,127.0,127.0,0.0,True
+two-lag eligible rows,95.0,95.0,0.0,True
+M0 temporal mae,32.27096774193549,32.271,0.0005,True
+M0 temporal rmse,54.611141484074004,54.6111,0.0005,True
+M0 temporal r2,0.6570673689348745,0.6571,0.0005,True
+M1 RF temporal mae,31.572292995156896,31.5723,0.0005,True
+M1 RF temporal rmse,52.76651325719948,52.7665,0.0005,True
+M1 RF temporal r2,0.6798429290964443,0.6798,0.0005,True
+M3 RF temporal mae,30.582688848392973,30.5827,0.0005,True
+M3 RF temporal rmse,50.436059355518346,50.4361,0.0005,True
+M3 RF temporal r2,0.7074981634472715,0.7075,0.0005,True
+M3 vs M1 temporal RMSE reduction,2.330453901681132,2.330454,0.001,True
+M3 vs M1 temporal MAE reduction,0.9896041467639236,0.989604,0.001,True
