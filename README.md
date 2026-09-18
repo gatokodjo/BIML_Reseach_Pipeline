@@ -402,8 +402,7 @@ archived repository release.
 
 ### Software and data
 
-A permanent Zenodo DOI will be added to this section when the
-manuscript-associated release is archived.
+Find the Zenodo DOI below.
 
 ```text
 DOI: 10.5281/zenodo.22833571
@@ -455,8 +454,17 @@ The authors declare that they have no competing interests.
 
 ## License
 
-The licensing terms for the repository code and derived analytical data
-should be specified in the accompanying `LICENSE` file.
 
-Original third-party datasets remain subject to the terms and conditions of
-their respective data providers.
+The original software and source code developed for this project are
+released under the MIT License. See the `LICENSE` file for the full
+license terms.
+
+The processed analytical dataset included in this repository was derived
+from publicly available third-party data sources, including the World
+Health Organization Global Health Observatory, Landsat 8, CHIRPS, and
+WorldPop. These source datasets remain subject to the terms, conditions,
+and attribution requirements of their respective data providers.
+
+The MIT License applies to the original software developed for this
+repository and does not supersede or replace the licensing terms of the
+underlying third-party data sources.
