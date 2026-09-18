@@ -406,8 +406,9 @@ A permanent Zenodo DOI will be added to this section when the
 manuscript-associated release is archived.
 
 ```text
-DOI: To be added
+DOI: 10.5281/zenodo.22833571
 ```
+
 
 ---
 
