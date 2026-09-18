@@ -1,1 +1,69 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software, data, or reproducibility pipeline in your
+  research, please cite the associated manuscript and the archived
+  repository release.
 
+title: "Biologically Informed Machine Learning Framework for Malaria Incidence Prediction Using Vectorial-Capacity-Derived Information"
+
+type: software
+
+authors:
+  - family-names: "EWLI"
+    given-names: "Kodjo Gato Didier"
+    affiliation: "Pan African University Institute for Basic Sciences, Technology and Innovation (PAUSTI), Nairobi, Kenya"
+
+  - family-names: "Karanja"
+    given-names: "Mwangi"
+    affiliation: "Jomo Kenyatta University of Agriculture and Technology (JKUAT), Nairobi, Kenya"
+
+  - family-names: "Agboka"
+    given-names: "Komi Mensah"
+    affiliation: "International Centre of Insect Physiology and Ecology (icipe), Nairobi, Kenya"
+
+  - family-names: "Barreaux"
+    given-names: "Antoine"
+    affiliation: "International Centre of Insect Physiology and Ecology (icipe), Nairobi, Kenya"
+
+  - family-names: "Oluwabukonla"
+    given-names: "Folorunso Sakinat"
+    affiliation: "Olabisi Onabanjo University, Ago-Iwoye, Nigeria"
+
+  - family-names: "WUIGA"
+    given-names: "Selina Akouwa"
+    affiliation: "Dibrugarh University, Assam, India"
+
+version: "1.0.0"
+
+date-released: "2026-09-18"
+
+abstract: >-
+  Reproducibility package for a biologically informed machine-learning
+  framework for malaria-incidence prediction using
+  vectorial-capacity-derived information. The repository contains the
+  processed analytical dataset, data-preparation procedures,
+  environmentally parameterized vectorial-capacity construction,
+  feature-ablation experiments, Random Forest and Gradient Boosting
+  modelling pipelines, country-grouped and temporal evaluation
+  procedures, bootstrap comparisons, and data underlying the reported
+  tables and empirical figures. The study evaluates whether
+  vectorial-capacity-derived information provides incremental predictive
+  information beyond historical malaria incidence and conventional
+  environmental predictors using country-level data from sub-Saharan
+  Africa.
+
+keywords:
+  - "malaria"
+  - "biologically informed machine learning"
+  - "vectorial capacity"
+  - "machine learning"
+  - "Random Forest"
+  - "Gradient Boosting"
+  - "remote sensing"
+  - "epidemiological modelling"
+  - "sub-Saharan Africa"
+  - "reproducible research"
+
+repository-code: "https://github.com/gatokodjo/BIML_Reseach_Pipeline.git"
+
+license: "MIT"
