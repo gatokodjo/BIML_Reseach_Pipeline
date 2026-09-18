@@ -35,7 +35,7 @@ authors:
 
 version: "1.0.0"
 
-date-released: "2026-09-18"
+
 
 abstract: >-
   Reproducibility package for a biologically informed machine-learning
@@ -66,4 +66,4 @@ keywords:
 
 repository-code: "https://github.com/gatokodjo/BIML_Reseach_Pipeline.git"
 
-license: "MIT"
+
